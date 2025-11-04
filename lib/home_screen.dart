@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_demo/screen_one.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -70,6 +71,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
+            ),
+          ),
+
+          Center(
+            child: TextButton(
+              onPressed: () {
+                // Get.to(ScreenOne());
+                Get.toNamed('/screenOne', arguments: [
+                  'Mac M1',
+                  'Mac M2 Pro'
+                ]);
+              },
+              child: Text('Go to next screen'),
             ),
           ),
         ],
