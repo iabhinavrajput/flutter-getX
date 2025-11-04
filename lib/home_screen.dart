@@ -13,7 +13,68 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('GetX')),
-      body: Center(child: Text('Welcome to the Home Screen!')),
+
+      body: Column(
+        children: [
+          Card(
+            child: ListTile(
+              title: Text('GetX dialog alert'),
+              subtitle: Text('Click to show GetX dialog alert'),
+              onTap: () {
+                Get.defaultDialog(
+                  title: 'GetX Dialog',
+                  middleText: 'This is a GetX dialog alert',
+                  confirm: TextButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text('OK'),
+                  ),
+                );
+              },
+            ),
+          ),
+
+          Card(
+            child: ListTile(
+              title: Text('GetX dialog Theme change'),
+              subtitle: Text('Click to change the theme'),
+              onTap: () {
+                Get.bottomSheet(
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blue[200],
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Icon(Icons.light_mode),
+                          title: Text('light theme'),
+                          onTap: () {
+                            Get.changeTheme(ThemeData.light());
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.dark_mode),
+                          title: Text('Dark mode'),
+                          onTap: () {
+                            Get.changeTheme(ThemeData.dark());
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.message),
         onPressed: () {
