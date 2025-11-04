@@ -17,6 +17,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
       body: Column(
         children: [
+          Container(
+            color: Colors.blue[200],
+            height: Get.height * .2,
+            child: Center(child: Text('center')),
+          ),
+
           Card(
             child: ListTile(
               title: Text('GetX dialog alert'),
@@ -78,10 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: TextButton(
               onPressed: () {
                 // Get.to(ScreenOne());
-                Get.toNamed('/screenOne', arguments: [
-                  'Mac M1',
-                  'Mac M2 Pro'
-                ]);
+                Get.toNamed('/screenOne', arguments: ['Mac M1', 'Mac M2 Pro']);
               },
               child: Text('Go to next screen'),
             ),
