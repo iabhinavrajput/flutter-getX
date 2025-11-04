@@ -80,6 +80,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
+          ListTile(title: Text('message'.tr), subtitle: Text("name".tr)),
+          SizedBox(height: 20),
+
+          OutlinedButton(
+            onPressed: () {
+              Get.updateLocale(Locale('en', 'US'));
+            },
+            child: Text('eng'),
+          ),
+          OutlinedButton(
+            onPressed: () {
+              Get.updateLocale(Locale('hi', 'IN'));
+            },
+            child: Text('hindi'),
+          ),
+
           Center(
             child: TextButton(
               onPressed: () {
