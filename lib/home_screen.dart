@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_demo/counter_controller.dart';
@@ -14,6 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final CounterController controller = Get.put(CounterController());
   final NotificationController notificationController = Get.put(
     NotificationController(),
+  );
+  ImagePickerController imagePickerController = Get.put(
+    ImagePickerController(),
   );
   @override
   Widget build(BuildContext context) {
@@ -123,6 +128,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+
+            Obx(() {
+              return Column(
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: imagePickerController.imagePath.isNotEmpty
+                        ? FileImage(
+                            File(imagePickerController.imagePath.toString()),
+                          )
+                        : null,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      imagePickerController.getImage();
+                    },
+                    child: Text('Pick image'),
+                  ),
+                ],
+              );
+            }),
+
             TextButton(
               onPressed: () {
                 // Get.toNamed('/screenTwo');
