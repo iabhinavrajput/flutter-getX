@@ -8,3 +8,11 @@ class CounterController extends GetxController {
   }
 
 }
+
+class NotificationController extends GetxController {
+  RxBool notification = false.obs;
+
+  setNotification(bool value) {
+    notification.value = value;
+  }
+}
