@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:getx_demo/home_screen.dart';
 import 'package:getx_demo/language.dart';
+import 'package:getx_demo/listview_builder.dart';
 import 'package:getx_demo/screen_one.dart';
 
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/', page: () => HomeScreen()),
         GetPage(name: '/screenOne', page: () => ScreenOne()),
+        GetPage(name: '/screenTwo', page: () => ScreenTwo())
       ],
     );
   }
