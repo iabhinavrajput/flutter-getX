@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_demo/counter_controller.dart';
+import 'package:getx_demo/controller.dart';
 import 'package:getx_demo/listview_builder.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -94,17 +94,21 @@ class _HomeScreenState extends State<HomeScreen> {
             ListTile(title: Text('message'.tr), subtitle: Text("name".tr)),
             SizedBox(height: 20),
 
-            OutlinedButton(
-              onPressed: () {
-                Get.updateLocale(Locale('en', 'US'));
-              },
-              child: Text('eng'),
-            ),
-            OutlinedButton(
-              onPressed: () {
-                Get.updateLocale(Locale('hi', 'IN'));
-              },
-              child: Text('hindi'),
+            Row(
+              children: [
+                OutlinedButton(
+                  onPressed: () {
+                    Get.updateLocale(Locale('en', 'US'));
+                  },
+                  child: Text('eng'),
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    Get.updateLocale(Locale('hi', 'IN'));
+                  },
+                  child: Text('hindi'),
+                ),
+              ],
             ),
 
             Center(child: Obx(() => Text(controller.counter.toString()))),
@@ -130,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             Obx(() {
-              return Column(
+              return Row(
                 children: [
                   CircleAvatar(
                     radius: 40,
@@ -150,24 +154,26 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             }),
 
-            TextButton(
-              onPressed: () {
-                // Get.toNamed('/screenTwo');
-                Get.to(() => ScreenTwo());
-              },
-              child: Text('ListView Builder'),
-            ),
-            Center(
-              child: TextButton(
-                onPressed: () {
-                  // Get.to(ScreenOne());
-                  Get.toNamed(
-                    '/screenOne',
-                    arguments: ['Mac M1', 'Mac M2 Pro'],
-                  );
-                },
-                child: Text('Go to next screen'),
-              ),
+            Row(
+              children: [
+                TextButton(
+                  onPressed: () {
+                    // Get.toNamed('/screenTwo');
+                    Get.to(() => ScreenTwo());
+                  },
+                  child: Text('ListView Builder'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    // Get.to(ScreenOne());
+                    Get.toNamed(
+                      '/screenOne',
+                      arguments: ['Mac M1', 'Mac M2 Pro'],
+                    );
+                  },
+                  child: Text('Go to next screen'),
+                ),
+              ],
             ),
           ],
         ),

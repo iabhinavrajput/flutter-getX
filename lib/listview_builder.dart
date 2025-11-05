@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_demo/counter_controller.dart';
+import 'package:getx_demo/controller.dart';
 
 class ScreenTwo extends StatefulWidget {
   const ScreenTwo({super.key});
