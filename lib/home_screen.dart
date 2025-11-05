@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_demo/counter_controller.dart';
 import 'package:getx_demo/screen_one.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final CounterController controller = Get.put(CounterController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +97,14 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: Text('hindi'),
           ),
-
+          
+          Center(child: Obx(() => Text(controller.counter.toString()))),
+          FloatingActionButton(
+            onPressed: () {
+              controller.incrementCounter();
+            },
+          ),
+          
           Center(
             child: TextButton(
               onPressed: () {
